@@ -1,0 +1,35 @@
+{% extends "layout.nunjucks" %}
+
+{% block title %}UI Components{% endblock %}
+
+{% block header %}
+  {% set pageName = "UI Components" %}
+  {% include "partials/header.nunjucks" %}
+{% endblock %}
+
+{% block content %}
+  {% for sectionTitle, selectors in componentDefinitions["ui-components"] %}
+    {% include "partials/spec-section.nunjucks" %}
+  {% endfor %}
+
+  {% if iconList | length > 0 %}
+    <div class="container">
+      <div class="row">
+        <div class="col-12@sm">
+          <h2 class="docs-type-header-2">Available Icons</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12@sm">
+          {% for iconId in iconList %}
+            <svg class="icon icon--small">
+              <use xlink:href="#icon-{{ iconId }}"></use>
+            </svg>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <button class="btn docs-line-toggler js-line-toggle">Toggle true margins</button>
+{% endblock %}

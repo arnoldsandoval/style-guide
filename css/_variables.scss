@@ -1,0 +1,38 @@
+
+@if not global-variable-exists("theme-color") {
+  @error "$theme-color variable should be injected with gulp-insert.";
+}
+
+// Every project has different gray shades, and variables; so rather than change
+// them in the docs for every project, we'll have grays just for docs, that never change,
+// similar to the docs-type-definitions.
+// These are incremented at smaller intervals near the poles & the middle, because
+// those are the places where you'll most often want more granular differentiation.
+
+$docs-colors: (
+  theme: $theme-color,
+  white:      rgb(255, 255, 255),
+  docsGray95: rgb(248, 248, 248),
+  docsGray90: rgb(237, 237, 237),
+  docsGray85: rgb(225, 225, 225),
+  docsGray80: rgb(210, 210, 210),
+  docsGray75: rgb(195, 195, 195),
+  docsGray70: rgb(180, 180, 180),
+  docsGray65: rgb(165, 165, 165),
+  docsGray60: rgb(150, 150, 150),
+  docsGray55: rgb(135, 135, 135),
+  docsGray50: rgb(125, 125, 125),
+  docsGray45: rgb(115, 115, 115),
+  docsGray40: rgb(100, 100, 100),
+  docsGray35: rgb(85,  85,  85 ),
+  docsGray30: rgb(70,  70,  70 ),
+  docsGray25: rgb(55,  55,  55 ),
+  docsGray20: rgb(40,  40,  40 ),
+  docsGray10: rgb(28,  30,  34 ),
+  black:      rgb(8,   8,   8  )
+);
+
+
+$monospace: Menlo, 'Lucida Console', Monaco, monospace;
+$sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serif: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;

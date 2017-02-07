@@ -1,0 +1,38 @@
+{% extends "layout.nunjucks" %}
+
+{% block title %}Colors{% endblock %}
+
+{% block header %}
+  {% set pageName = "Colors" %}
+  {% include "partials/header.nunjucks" %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h1 class="docs-type-header-1">Site Colors</h1>
+        <blockquote class="docs-blockquote">
+          <p>Available colors to use. You should only use colors listed here.</p>
+        </blockquote>
+        <p class="docs-type-body-1">All colors have classes including <code class="docs-inline-code">.background--[colorName]</code>, <code class="docs-inline-code">.fill--[colorName]</code>, <code class="docs-inline-code">.stroke--[colorName]</code>, <code class="docs-inline-code">.type--[colorName]</code>, to apply to a background, fill, stroke, or typestyle, respectively.</p>
+        <p class="docs-type-body-1">Gradients only have the <code class="docs-inline-code">.background--[gradientName]</code> class, which applies the linear gradient to the <code class="docs-inline-code">background--image</code> attribute.
+      </div>
+    </div>
+  </div>
+
+  {% set swatchTitle = "Colors" %}
+  {% set swatchList = getFilteredColors(variables.colors, false) %}
+  {% include "partials/swatch-section.nunjucks" %}
+
+  {% set swatchTitle = "Grays" %}
+  {% set swatchList = getFilteredColors(variables.colors, true) %}
+  {% include "partials/swatch-section.nunjucks" %}
+
+  {% if variables.gradients %}
+    {% set swatchTitle = "Gradients" %}
+    {% set swatchList = variables.gradients %}
+    {% set columnSize = 3 %}
+    {% include "partials/swatch-section.nunjucks" %}
+  {% endif %}
+{% endblock %}

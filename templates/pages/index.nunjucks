@@ -1,0 +1,26 @@
+{% extends "layout.nunjucks" %}
+
+{% block title %}Directory{% endblock %}
+
+{% block content %}
+  <section class="docs-section">
+    <div class="container spacer-top-small spacer-btm-large">
+      {% for name, list in directoryLinks %}
+        {% if list | length > 0 %}
+          <div class="row spacer-top-large spacer-top-none:first">
+            <div class="col-4@md">
+              <h2 class="docs-type-header-2">{{ name }}</h2>
+            </div>
+            <div class="col-8@md">
+              <ul class="docs-index-text-links">
+                {% for link in list %}
+                <li><a class="docs-index-text-link" href="{{ link.href }}">{{ link.text }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

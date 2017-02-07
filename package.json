@@ -1,0 +1,39 @@
+{
+  "name": "@odopod/style-guide",
+  "version": "1.0.0-beta.1",
+  "description": "Odopod style guide written in Nunjucks.",
+  "main": "index.js",
+  "author": "Odopod",
+  "dependencies": {
+    "del": "^2.2.1",
+    "glob": "^7.0.5",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-nunjucks-render": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "lodash": "^4.17.4",
+    "merge-options": "0.0.64",
+    "node-sass": "^4.3.0",
+    "prismjs": "^1.3.0",
+    "require-dir": "^0.3.0",
+    "require-linked-peer": "^0.1.0"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/odopod/style-guide",
+  "files": [
+    "css",
+    "js",
+    "tasks",
+    "templats",
+    "config.js",
+    "defaults.js",
+    "gulp-load-tasks.js",
+    "index.js"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "scripts": {}
+}

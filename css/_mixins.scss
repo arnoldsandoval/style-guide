@@ -1,0 +1,40 @@
+@mixin docs-dark-block($bordered:true) {
+  background-color: map-get($docs-colors, docsGray90);
+  color: map-get($docs-colors, docsGray30);
+  @if $bordered {
+    border: 1px solid get-color(docsGray80);
+  }
+}
+
+
+// Copied from sassplate
+@mixin breakpoint($bp, $isMaxWidth: false, $isScreenOnly: true) {
+  $breakpoint: map-get((
+    xs: 0px,
+    sm: 768px,
+    md: 1024px
+  ), $bp);
+  $media: if($isMaxWidth, 'max-width', 'min-width');
+
+  @if $isMaxWidth {
+    $breakpoint: $breakpoint - 1px;
+  }
+
+  $media-query: "(#{$media}: #{$breakpoint})";
+
+  @if $isScreenOnly {
+    $media-query: "screen and #{$media-query}";
+  }
+
+  @media #{$media-query} {
+    @content;
+  }
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function px-rem($px, $context: 16) {
+  @return strip-units($px) / strip-units($context) + 0rem;
+}

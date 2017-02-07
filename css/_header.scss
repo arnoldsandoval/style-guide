@@ -1,0 +1,28 @@
+
+.docs-page-header {
+  position: relative;
+  display: block;
+  padding: px-rem(32) 0 px-rem(40);
+  background-color: map-get($docs-colors, theme);
+  margin-bottom: px-rem(48);
+}
+
+.docs-header-link-back {
+  display: block;
+  margin-bottom: 1rem;
+  color: map-get($docs-colors, white);
+  text-decoration: none;
+
+  .icon {
+    fill: white;
+  }
+
+  &:hover {
+    color: map-get($docs-colors, white);
+    text-decoration: underline;
+
+    .icon {
+      transform: translateX(-2px);
+    }
+  }
+}

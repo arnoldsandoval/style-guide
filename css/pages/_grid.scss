@@ -1,0 +1,18 @@
+// Grid examples
+.docs-grid-example {
+
+  background: #F6F9FB;
+
+  .row {
+    margin-bottom: px-rem(12);
+  }
+  .blockly {
+    height: 2.5rem;
+    text-align: center;
+    @include docs-dark-block();
+
+    .ghost-center.mono {
+      font-size: 0.8rem;
+    }
+  }
+}

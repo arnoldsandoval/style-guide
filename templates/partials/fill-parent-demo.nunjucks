@@ -1,0 +1,25 @@
+<section class="docs-simplesheet__section" id="fill-parent">
+  <div class="container">
+    <div class="row spacer-btm-small">
+      <div class="col-12@sm">
+        <h2 class="docs-type-header-1 spacer-btm-small">Fill Parent</h2>
+        <p class="docs-type-body-2">Use <code class="docs-inline-code">.fill-parent</code> to set <code class="docs-inline-code">position: absolute;</code>, with <code class="docs-inline-code">top</code>, <code class="docs-inline-code">left</code>, <code class="docs-inline-code">right</code>, and <code class="docs-inline-code">bottom</code> values all set to <code class="docs-inline-code">0</code> so that it fills its containing block.</p>
+        <p class="docs-type-body-3"><strong class="type--bold">Heads up!</strong> The parent element needs to be <code class="docs-inline-code">position:relative;</code></p>
+        <div style="height:200px; width:100%; background:green;" class="relative">
+          <div class="fill-parent docs-dark-block">I fill the containing block.</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row spacer-top-small spacer-btm-medium">
+      <div class="col-12@sm">
+        <h3 class="docs-type-header-4">Markup</h3>
+        <div class="docs-markup-container docs-dark-block">
+          <pre><code class="language-markup">&lt;div class="relative" style="height:200px; width:100%; background:green;"&gt;
+  &lt;div class="fill-parent" style="background:gray;"&gt;I fill the containing block.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

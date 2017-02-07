@@ -1,0 +1,16 @@
+{% extends "layout.nunjucks" %}
+
+{% block title %}Typography{% endblock %}
+
+{% block header %}
+  {% set pageName = "Typography" %}
+  {% include "partials/header.nunjucks" %}
+{% endblock %}
+
+{% block content %}
+  {% for sectionTitle, selectors in typeDefinitions["type-definitions"] %}
+    {% include "partials/spec-section.nunjucks" %}
+  {% endfor %}
+
+  <button class="btn docs-line-toggler js-line-toggle">Toggle true margins</button>
+{% endblock %}

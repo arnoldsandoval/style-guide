@@ -1,0 +1,184 @@
+.docs-blockquote {
+  padding: 0 1rem;
+  color: #777;
+  border-left: 4px solid #ddd;
+  margin: 0 0 1.125rem;
+
+  p { margin: 0; }
+}
+
+.docs-type-display-1 {
+  margin: 0;
+  line-height: 1;
+  font-family: $sans-serif;
+  font-size: 32px;
+  color: white;
+
+  @media screen and (min-width: 768px) {
+    font-size: 60px;
+  }
+}
+
+.docs-type-header-1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: $sans-serif;
+  font-size: 22px;
+  color: map-get($docs-colors, docsGray20);
+
+  @media screen and (min-width: 768px) {
+    font-size: 48px;
+  }
+}
+
+.docs-type-header-2 {
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-family: $sans-serif;
+  font-size: 20px;
+  color: map-get($docs-colors, docsGray20);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+    font-size: 36px;
+  }
+}
+
+.docs-type-header-4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: $sans-serif;
+  font-size: 16px;
+  color: map-get($docs-colors, docsGray30);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+}
+
+.docs-type-subhead-1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-family: $sans-serif;
+  text-transform: none;
+  font-size: 15px;
+  color: white;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.docs-type-classname {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: $monospace;
+  font-weight: bold;
+  font-size: 16px;
+  color: map-get($docs-colors, black);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.docs-type-label-1 {
+  margin-bottom: 8px;
+  font-family: $monospace;
+  font-weight: bold;
+  font-size: 13px;
+  color: map-get($docs-colors, black);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+}
+
+.docs-type-property {
+  margin-bottom: 8px;
+  font-family: $monospace;
+  font-size: 13px;
+  color: map-get($docs-colors, docsGray20);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+}
+
+.docs-type-body-1 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-family: $serif;
+  font-size: 16px;
+  color: map-get($docs-colors, docsGray30);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 28px;
+    font-size: 18px;
+  }
+}
+
+.docs-type-body-2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-family: $serif;
+  font-size: 14px;
+  color: map-get($docs-colors, docsGray30);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+}
+
+.docs-type-body-3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: $serif;
+  font-size: 13px;
+  color: map-get($docs-colors, docsGray30);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+}
+
+.docs-index-text-link {
+  font-family: $sans-serif;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.docs-type-icon-demo-text {
+  font-family: $sans-serif;
+  color: map-get($docs-colors, docsGray20);
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+// Docs color modifiers
+.docs-color--white {
+  color: white !important;
+}
+
+// for inline classnames
+code:not([class*="language"]) {
+  display: inline-block;
+  padding: 1px 0 2px;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgb(245, 245, 245);
+  border-radius: 3px;
+  font-family: $monospace;
+}
+
+code:not([class*="language"])::before,
+code:not([class*="language"])::after {
+  content: "\00a0";
+  letter-spacing: -.2em;
+}

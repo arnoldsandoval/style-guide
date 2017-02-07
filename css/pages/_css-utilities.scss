@@ -1,0 +1,32 @@
+
+
+table.docs-table {
+  font-size: 0.8125rem;
+  color: map-get($docs-colors, gray75);
+  border: 1px solid map-get($docs-colors, docsGray30);
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+table.docs-table th {
+  border-width: 1px;
+  padding: 0.5rem;
+  border: 1px solid map-get($docs-colors, docsGray70);
+  background-color: map-get($docs-colors, docsGray80);
+}
+
+table.docs-table td {
+  border-width: 1px;
+  padding: 0.5rem;
+  border: 1px solid map-get($docs-colors, docsGray70);
+  background-color: map-get($docs-colors, white);
+}
+
+
+.docs-media-object-example,
+.docs-flag-object-example {
+  img {
+    border: 1px solid map-get($docs-colors, docsGray70);
+  }
+}

@@ -1,0 +1,60 @@
+<section class="docs-simplesheet__section" id="media-objects">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2 class="docs-type-header-1">Media Object</h2>
+        <blockquote class="docs-blockquote">
+          <p>An object (like an image) and content to the right or left. <a href="http://stubbornella.org/content/?p=497" class="type-link-text-1">Source</a></p>
+        </blockquote>
+        <p class="docs-type-body-2">To place the object to the left, use <code class="docs-inline-code">.pull-left</code> on the media-object, or right using <code class="docs-inline-code">.pull-right</code>.</p>
+        <p class="docs-type-body-3">The element with the float on it does not have to be an anchor tag.</p>
+        <p class="docs-type-body-3"><strong class="type--bold">Heads up!</strong> <code class="docs-inline-code">max-width: 100%;</code> does not constrain the image. Hi resolution images may grow larger than you expect. To avoid this, set a width on the image.</p>
+      </div>
+    </div>
+    <div class="row spacer-top-small">
+      <div class="col-9@sm">
+        <div class="media docs-media-object-example">
+          <a href="#" class="pull-left"><img src="https://placehold.it/64/222626" alt="Generic placeholder image" class="media-object"></a>
+          <div class="media__body">
+            <h4 class="media__heading docs-type-header-4">Media heading</h4>
+            <p class="docs-type-body-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+          </div>
+        </div>
+        <div class="media docs-media-object-example"><a href="#" class="pull-left"><img src="https://placehold.it/64/222626" alt="Generic placeholder image" class="media-object"></a>
+          <div class="media__body">
+            <h4 class="media__heading docs-type-header-4">Media heading</h4>
+            <p class="docs-type-body-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <div class="media"><a href="#" class="pull-left"><img src="https://placehold.it/64/222626" alt="Generic placeholder image" class="media-object"></a>
+              <div class="media__body">
+                <h4 class="media__heading docs-type-header-4">Nested media heading</h4>
+                <p class="docs-type-body-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="media docs-media-object-example"><a href="#" class="pull-right"><img src="https://placehold.it/64/222626" alt="Generic placeholder image" class="media-object"></a>
+          <div class="media__body">
+            <h4 class="media__heading docs-type-header-4">Media heading, image pull-right</h4>
+            <p class="docs-type-body-3">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row spacer-top-small">
+      <div class="col-12@sm">
+        <h3 class="docs-type-header-4">Markup</h3>
+        <div class="docs-markup-container docs-dark-block">
+          <pre><code class="language-markup">&lt;div class="media"&gt;
+  &lt;a class="pull-left" href="#"&gt;
+    &lt;img class="media-object" src="https://placehold.it/64x64" alt="Generic placeholder image"&gt;
+  &lt;/a&gt;
+  &lt;div class="media__body"&gt;
+    &lt;h4 class="media__heading"&gt;Media heading&lt;/h4&gt;
+    &lt;p&gt;Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

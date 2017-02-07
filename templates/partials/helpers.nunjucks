@@ -1,0 +1,74 @@
+{% macro grid_block(span) %}
+  <div class="blockly ghost-center-wrap">
+    <span class="ghost-center mono">{{ span }}</span>
+  </div>
+{% endmacro %}
+
+{% macro grid_columns(spans, totalColumns) %}
+  {% for i in range(0, totalColumns) -%}
+    <div class="col-{{ spans }}@sm">
+      {{ grid_block(spans) }}
+    </div>
+  {%- endfor %}
+{% endmacro %}
+
+{# Print demo element with red line toggles to see borders #}
+{% macro demo_element(selector, properties) %}
+  <div class="docs-demo-element">
+    <div class="docs-true-text-margins-demo--red-line"></div>
+    {{ demo_content(selector, properties) }}
+    <div class="docs-true-text-margins-demo--red-line"></div>
+  </div>
+{% endmacro %}
+
+{# Print demo content (html, or text) #}
+{% macro demo_content(selector, properties) %}
+  {% set demo = properties["docs-demo"] %}
+  {% set alignCenterClass = "type--center" if demo["text-center"] else "" %}
+
+  {% if demo["demo-markup"] %}
+    {{ trimSingleQuotes(demo["demo-markup"]) }}
+  {% elif demo["demo-text"] %}
+    <p class="{{ selector }}{{ alignCenterClass }}">{{ trimSingleQuotes(demo["demo-text"]) }}</p>
+    {% if demo["demo-text2"] %}
+      <p class="{{ selector }}{{ alignCenterClass }}">{{ trimSingleQuotes(demo["demo-text2"]) }}</p>
+    {% endif %}
+  {% endif %}
+{% endmacro %}
+
+{# Display base styles for an element and then its breakpoints #}
+{% macro selector_properties(properties) %}
+  {{ property_section("All Breakpoints", properties.baseStyles) }}
+
+  {% for breakpointName, styles in properties.breakpoints %}
+    {{ property_section(breakpointName, styles) }}
+  {% endfor %}
+{% endmacro %}
+
+{# Section of declarations (property: value) pairs. #}
+{% macro property_section(title, group) %}
+  <h6 class="docs-type-label-1 type--uppercase">{{ title }}</h6>
+
+  <div class="">
+    {% for property, value in group %}
+
+      {# Show hover, active, and focus states with a title #}
+      {% if (property == "hover" or property == "active" or property == "focus" or property == "visited") %}
+        {% if size(value) > 0 %}
+          <p class="docs-type-label-1">:{{ property }}</p>
+
+          {% for prop, val in value %}
+            {{ declaration(prop, val) }}
+          {% endfor %}
+        {% endif %}
+
+      {% else %}
+        {{ declaration(property, value) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro declaration(property, value) -%}
+  <code class="docs-type-property">{{ property }}: <span class="type--bold">{{ value }}</span></code>
+{%- endmacro %}
