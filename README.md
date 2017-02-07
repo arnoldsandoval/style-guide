@@ -128,14 +128,14 @@ renamePages: (filepath) => {
 
 ## Basic Example
 
-Odopod Sassplate uses Odopod Style Guide. Here's that configuration.
+[Podium Sassplate](https://github.com/odopod/podium/tree/master/packages/podium-sassplate) uses Odopod Style Guide. Here's that configuration.
 
 ```js
 const styleguide = require('@odopod/style-guide');
 
 // Configure style guide
 styleguide.configure({
-  name: 'Odopod Sassplate',
+  name: 'Podium Sassplate',
   client: 'Odopod',
   jsonSource: 'extensions',
   stylesheets: [
