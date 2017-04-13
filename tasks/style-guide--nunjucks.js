@@ -1,29 +1,28 @@
-'use strict';
-
 const path = require('path');
 const requirePeer = require('require-linked-peer');
 const gulp = requirePeer('gulp');
 const glob = require('glob');
 const rename = require('gulp-rename');
-const uniqWith = require('lodash/uniqWith');
+const uniqBy = require('lodash/uniqBy');
 const gulpNunjucks = require('gulp-nunjucks-render');
 const config = require('../config');
-const nunjucks = gulpNunjucks.nunjucks;
 const trimSingleQuotes = require('../templates/helpers/trim-single-quotes');
+
+const nunjucks = gulpNunjucks.nunjucks;
 
 function getSourcePages() {
   let pages = glob.sync(path.join(config.dir.pages, '*.nunjucks'));
 
   if (config.current.templatePath) {
-    let customPages = glob.sync(path.join(config.current.templatePath, 'pages/*.nunjucks'));
-    pages = uniqWith(customPages.concat(pages), filepath => path.basename(filepath));
+    const customPages = glob.sync(path.join(config.current.templatePath, 'pages/*.nunjucks'));
+    pages = uniqBy(customPages.concat(pages), filepath => path.basename(filepath));
   }
 
   return pages;
 }
 
 function getSearchPaths() {
-  let searchPaths = [config.dir.templates];
+  const searchPaths = [config.dir.templates];
 
   // Prepend the project's template path if it exists. Nunjucks will prioritize
   // the project template.
@@ -35,8 +34,8 @@ function getSearchPaths() {
 }
 
 function getNunjucksOptions() {
-  let searchPaths = getSearchPaths();
-  let loaderOptions = { watch: false, noCache: true };
+  const searchPaths = getSearchPaths();
+  const loaderOptions = { watch: false, noCache: true };
 
   return {
     data: config.getTemplateData(),
