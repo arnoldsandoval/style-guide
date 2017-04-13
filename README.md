@@ -19,7 +19,7 @@ const styleguide = require('@odopod/style-guide');
 
 styleguide.configure(options);
 
-gulp.task('default', ['style-guide'])
+gulp.task('default', ['style-guide']);
 ```
 
 The following gulp tasks are exported after the style guide is configured:
