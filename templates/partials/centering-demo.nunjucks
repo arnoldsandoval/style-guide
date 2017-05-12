@@ -4,7 +4,7 @@
       <div class="col-12@sm">
         <h2 class="docs-type-header-1 spacer-btm-small">Vertical Centering</h2>
         <h2 class="docs-type-header-2">Ghost Centering</h2>
-        <p class="docs-type-body-2">Uses a full-height pseudo element (ghost) and vertically aligns the sibling <code class="docs-inline-code">.ghost-center</code> element to it.</p>
+        <p class="docs-type-body-2">Uses a full-height pseudo element (ghost) and vertically aligns the sibling <code>.ghost-center</code> element to it.</p>
         <div style="height:200px;" class="ghost-center-wrap type--center docs-dark-block">
           <div class="ghost-center">I’m centered.</div>
         </div>
@@ -24,7 +24,7 @@
     <div class="row spacer-btm-small">
       <div class="col-12@sm">
         <h2 class="docs-type-header-2">Table Centering</h2>
-        <p class="docs-type-body-2">Uses CSS’ <code class="docs-inline-code">display: table</code> and <code class="docs-inline-code">display: table-cell</code>. Remember that <code class="docs-inline-code">table</code>s only take up as much space as they need, so you’ll probably have to use the <code class="docs-inline-code">width-full</code> class on your <code class="docs-inline-code">.table-center-wrap</code> element.</p>
+        <p class="docs-type-body-2">Uses CSS’ <code>display: table</code> and <code>display: table-cell</code>. Remember that <code>table</code>s only take up as much space as they need, so you’ll probably have to use the <code>width-full</code> class on your <code>.table-center-wrap</code> element.</p>
         <div style="height:200px;" class="table-center-wrap docs-dark-block">
           <div class="table-center">I’m centered.</div>
         </div>

@@ -1,8 +1,8 @@
-@mixin docs-dark-block($bordered:true) {
+@mixin docs-dark-block($bordered: true) {
   background-color: map-get($docs-colors, docsGray90);
   color: map-get($docs-colors, docsGray30);
   @if $bordered {
-    border: 1px solid get-color(docsGray80);
+    border: 1px solid map-get($docs-colors, docsGray80);
   }
 }
 

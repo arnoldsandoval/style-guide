@@ -1,5 +1,3 @@
-'use strict';
-
 // Make base styles and breakpoint styles.
 const reduce = require('lodash/reduce');
 const forEach = require('lodash/forEach');
@@ -39,7 +37,7 @@ function getDisplaySelector(selector) {
 function mapData(selectorData, variables) {
   return reduce(selectorData, (result, declarations, selector) => {
     selector = trimSingleQuotes(selector);
-    let displaySelector = getDisplaySelector(selector);
+    const displaySelector = getDisplaySelector(selector);
 
     const baseStyles = {};
     let qualifiers = null;
@@ -50,22 +48,18 @@ function mapData(selectorData, variables) {
       // Collect all styles that are always applied to the element.
       if (!SPECIAL.includes(property)) {
         baseStyles[property] = getValue(property, value, variables);
-
       } else if (property === 'qualifiers') {
-
         // Prepend the qualifier to each selector.
-        let qData = reduce(value, (result, obj, parentSelector) => {
+        const qData = reduce(value, (result, obj, parentSelector) => {
           result[parentSelector + ' .' + selector] = obj;
           return result;
         }, {});
 
         // Run through this method again to collect all styles.
         qualifiers = mapData(qData, variables);
-
       } else if (property === 'modifiers') {
-
         // Append the modifier to each selector.
-        let qData = reduce(value, (result, obj, modifier) => {
+        const qData = reduce(value, (result, obj, modifier) => {
           result[selector + '--' + trimSingleQuotes(modifier)] = obj;
           return result;
         }, {});
@@ -79,7 +73,7 @@ function mapData(selectorData, variables) {
       displaySelector,
       baseStyles,
       breakpoints: declarations.breakpoints,
-      qualifiers: qualifiers,
+      qualifiers,
       'docs-demo': declarations['docs-demo'],
     };
 

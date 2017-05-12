@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * In order to get complex strings through from json to the scss, it needs to be
  * in quotes. Json needs double-quotes around everything, and the json importer

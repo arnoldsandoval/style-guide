@@ -1,12 +1,9 @@
-'use strict';
-
 /**
 * http://locutus.io/php/math/hexdec/
 * Converts string to hex value (base 16).
 */
 function hexdec(hex) {
-  hex = (hex + '').replace(/[^a-f0-9]/gi, '');
-  return parseInt(hex, 16);
+  return parseInt((hex + '').replace(/[^a-f0-9]/gi, ''), 16);
 }
 
 /**
@@ -14,9 +11,9 @@ function hexdec(hex) {
  * @author Christopher Mischler
  */
 function getColorBrightness(hex) {
-  var r = hexdec(hex.substr(1, 2));
-  var g = hexdec(hex.substr(3, 2));
-  var b = hexdec(hex.substr(5, 2));
+  const r = hexdec(hex.substr(1, 2));
+  const g = hexdec(hex.substr(3, 2));
+  const b = hexdec(hex.substr(5, 2));
 
   // Simple weighted avarage.
   // This might be overly simplistic as different colors are perceived

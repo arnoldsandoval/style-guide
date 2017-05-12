@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const requireDir = require('require-dir');
 
 // Helpers
@@ -44,7 +45,7 @@ module.exports = {
  */
 function getIcons(iconDirectory) {
   if (iconDirectory) {
-    return require('fs').readdirSync(iconDirectory)
+    return fs.readdirSync(iconDirectory)
       .filter(icon => path.extname(icon) === '.svg')
       .map(icon => path.basename(icon, '.svg'));
   }
@@ -52,7 +53,7 @@ function getIcons(iconDirectory) {
   return [];
 }
 
-module.exports.getTemplateData = function () {
+module.exports.getTemplateData = function getTemplateData() {
   // Read all .json files into an object and merge with the user-defined config.
   return Object.assign(
     {},

@@ -1,18 +1,22 @@
 // Grid examples
 .docs-grid-example {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: map-get($docs-colors, prism-background);
 
-  background: #F6F9FB;
-
-  .row {
+  .row:not(:last-child) {
     margin-bottom: px-rem(12);
   }
-  .blockly {
-    height: 2.5rem;
-    text-align: center;
-    @include docs-dark-block();
+}
 
-    .ghost-center.mono {
-      font-size: 0.8rem;
-    }
-  }
+.docs-grid-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  text-align: center;
+  font-family: $monospace;
+  font-size: 0.875rem;
+  background-color: white;
+  border: 1px solid map-get($docs-colors, docsGray80);
 }

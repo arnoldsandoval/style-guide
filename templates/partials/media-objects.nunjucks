@@ -6,9 +6,9 @@
         <blockquote class="docs-blockquote">
           <p>An object (like an image) and content to the right or left. <a href="http://stubbornella.org/content/?p=497" class="type-link-text-1">Source</a></p>
         </blockquote>
-        <p class="docs-type-body-2">To place the object to the left, use <code class="docs-inline-code">.pull-left</code> on the media-object, or right using <code class="docs-inline-code">.pull-right</code>.</p>
+        <p class="docs-type-body-2">To place the object to the left, use <code>.pull-left</code> on the media-object, or right using <code>.pull-right</code>.</p>
         <p class="docs-type-body-3">The element with the float on it does not have to be an anchor tag.</p>
-        <p class="docs-type-body-3"><strong class="type--bold">Heads up!</strong> <code class="docs-inline-code">max-width: 100%;</code> does not constrain the image. Hi resolution images may grow larger than you expect. To avoid this, set a width on the image.</p>
+        <p class="docs-type-body-3"><strong class="type--bold">Heads up!</strong> <code>max-width: 100%;</code> does not constrain the image. Hi resolution images may grow larger than you expect. To avoid this, set a width on the image.</p>
       </div>
     </div>
     <div class="row spacer-top-small">

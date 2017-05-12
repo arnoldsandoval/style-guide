@@ -1,34 +1,16 @@
-var buttons = document.querySelectorAll('.show');
+var buttons = document.querySelectorAll('.js-section-toggle');
 
 var handleClick = function (evt) {
   var button = evt.target;
-  var data = button.dataset;
-  var targetEl = document.querySelector(data.target);
+  var targetEl = document.querySelector(button.dataset.target);
 
-  var display;
-  var buttonText;
-  if (data.isOpen === 'true') {
-    display = 'none';
-    if (data.target === '#no-ratios') {
-      buttonText = 'Show Markup';
-    } else {
-      buttonText = 'Show';
-    }
-
-    button.dataset.isOpen = false;
+  if (targetEl.hasAttribute('hidden')) {
+    targetEl.removeAttribute('hidden');
+    button.textContent = 'Hide';
   } else {
-    display = 'block';
-    if (data.target === '#no-ratios') {
-      buttonText = 'Hide Markup';
-    } else {
-      buttonText = 'Hide';
-    }
-
-    button.dataset.isOpen = true;
+    targetEl.setAttribute('hidden', '');
+    button.textContent = 'Show';
   }
-
-  button.textContent = buttonText;
-  targetEl.style.display = display;
 };
 
 for (var i = 0; i < buttons.length; i++) {

@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Retrieve the keys of an object as an array while excluding some keys.
  * @param {!Object} object Object to retrieve keys from.

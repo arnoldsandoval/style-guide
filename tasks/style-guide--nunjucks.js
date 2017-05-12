@@ -1,12 +1,13 @@
 const path = require('path');
 const requirePeer = require('require-linked-peer');
-const gulp = requirePeer('gulp');
 const glob = require('glob');
 const rename = require('gulp-rename');
 const uniqBy = require('lodash/uniqBy');
 const gulpNunjucks = require('gulp-nunjucks-render');
 const config = require('../config');
 const trimSingleQuotes = require('../templates/helpers/trim-single-quotes');
+
+const gulp = requirePeer('gulp');
 
 const nunjucks = gulpNunjucks.nunjucks;
 
@@ -53,7 +54,7 @@ function getNunjucksOptions() {
   };
 }
 
-module.exports = function (done) {
+module.exports = function nunjucks(done) {
   return gulp.src(getSourcePages())
     .pipe(rename(config.current.renamePages))
     .pipe(gulpNunjucks(getNunjucksOptions()).on('error', (err) => {

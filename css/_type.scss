@@ -21,7 +21,7 @@
 
 .docs-type-header-1 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.727em;
   font-family: $sans-serif;
   font-size: 22px;
   color: map-get($docs-colors, docsGray20);
@@ -33,26 +33,24 @@
 
 .docs-type-header-2 {
   margin-top: 0;
-  margin-bottom: 32px;
+  margin-bottom: 1.6em;
   font-family: $sans-serif;
   font-size: 20px;
   color: map-get($docs-colors, docsGray20);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 32px;
     font-size: 36px;
   }
 }
 
 .docs-type-header-4 {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 1em;
   font-family: $sans-serif;
   font-size: 16px;
   color: map-get($docs-colors, docsGray30);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
     font-size: 18px;
   }
 }
@@ -91,7 +89,6 @@
   color: map-get($docs-colors, black);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 8px;
     font-size: 13px;
   }
 }
@@ -103,46 +100,42 @@
   color: map-get($docs-colors, docsGray20);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 8px;
     font-size: 13px;
   }
 }
 
 .docs-type-body-1 {
   margin-top: 0;
-  margin-bottom: 18px;
+  margin-bottom: 1.125em;
   font-family: $serif;
   font-size: 16px;
   color: map-get($docs-colors, docsGray30);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 28px;
     font-size: 18px;
   }
 }
 
 .docs-type-body-2 {
   margin-top: 0;
-  margin-bottom: 24px;
+  margin-bottom: 1.5em;
   font-family: $serif;
   font-size: 14px;
   color: map-get($docs-colors, docsGray30);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 30px;
     font-size: 16px;
   }
 }
 
 .docs-type-body-3 {
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 1.23em;
   font-family: $serif;
   font-size: 13px;
   color: map-get($docs-colors, docsGray30);
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 24px;
     font-size: 14px;
   }
 }
@@ -166,19 +159,27 @@
   color: white !important;
 }
 
-// for inline classnames
 code:not([class*="language"]) {
-  display: inline-block;
-  padding: 1px 0 2px;
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
   margin: 0;
   font-size: 85%;
-  background-color: rgb(245, 245, 245);
+  background-color: rgba(27,31,35,0.05);
   border-radius: 3px;
-  font-family: $monospace;
+  font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
 }
 
 code:not([class*="language"])::before,
 code:not([class*="language"])::after {
   content: "\00a0";
   letter-spacing: -.2em;
+}
+
+pre[class*="language-"] > code[data-language] {
+  overflow: auto;
+}
+
+pre[class*="language-"].no-language > code[data-language]::before {
+  display: none;
 }

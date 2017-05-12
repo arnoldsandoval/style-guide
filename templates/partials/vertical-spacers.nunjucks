@@ -10,7 +10,7 @@
     {%- if loop.last -%}
       &#32;or&#32;
     {%- endif -%}
-    <code class="docs-inline-code">{{ name }}</code>
+    <code>{{ name }}</code>
   {%- endfor -%}
 {% endset %}
 
@@ -22,7 +22,7 @@
         <blockquote class="docs-blockquote">
           <p>Add global top and bottom padding at a variety of sizes which adjust to breakpoints automatically.</p>
         </blockquote>
-        <p class="docs-type-body-2">Available options are any combination of <code class="docs-inline-code">.spacer-top-</code> or <code class="docs-inline-code">.spacer-btm-</code> with any of the available sizes: {{ spacer_list }}. For example, <code class="docs-inline-code">.spacer-top-small</code> or <code class="docs-inline-code">.spacer-btm-large</code>.</p>
+        <p class="docs-type-body-2">Available options are any combination of <code>.spacer-top-</code> or <code>.spacer-btm-</code> with any of the available sizes: {{ spacer_list }}. For example, <code>.spacer-top-small</code> or <code>.spacer-btm-large</code>.</p>
         <p class="docs-type-body-2">Breakpoint suffixes for spacer classes are also available (e.g. <code>.spacer-btm-medium@md</code>)</p>
       </div>
     </div>

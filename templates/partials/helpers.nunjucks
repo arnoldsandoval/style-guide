@@ -1,13 +1,11 @@
-{% macro grid_block(span) %}
-  <div class="blockly ghost-center-wrap">
-    <span class="ghost-center mono">{{ span }}</span>
-  </div>
+{% macro grid_column_inner(text) %}
+  <div class="docs-grid-inner">{{ text }}</div>
 {% endmacro %}
 
 {% macro grid_columns(spans, totalColumns) %}
   {% for i in range(0, totalColumns) -%}
     <div class="col-{{ spans }}@sm">
-      {{ grid_block(spans) }}
+      {{ grid_column_inner(spans) }}
     </div>
   {%- endfor %}
 {% endmacro %}
