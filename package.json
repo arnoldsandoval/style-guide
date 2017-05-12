@@ -1,6 +1,6 @@
 {
   "name": "@odopod/style-guide",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0",
   "description": "Odopod style guide written in Nunjucks.",
   "main": "index.js",
   "author": "Odopod",
