@@ -52,7 +52,6 @@
     </div>
     <div class="row spacer-top-small">
       <div class="col-9@sm">
-        {% set start_gray = 70 %}
         {% for name in spacer_names %}
           {% set colour = (loop.length - loop.index0) * 20 %}
           <div class="spacer-top-{{ name }}" style="background-color:rgb({{ colour }}, {{ colour }}, {{ colour }})"></div>

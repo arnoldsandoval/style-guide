@@ -1,0 +1,58 @@
+{% set ratios = variables["aspect-boxes"] %}
+{% set ratio_names = getRatioNames(ratios) %}
+
+{# Create a comma separated list of ratio names #}
+{% set ratio_list %}
+  {%- for name in ratio_names -%}
+    {%- if not loop.first -%}
+      ,&#32;
+    {%- endif -%}
+    {%- if loop.last -%}
+      &#32;or&#32;
+    {%- endif -%}
+    <code>{{ name }}</code>
+  {%- endfor -%}
+{% endset %}
+
+<section class="docs-simplesheet__section" id="aspect-boxes">
+  <div class="container">
+    <div class="row">
+      <div class="col-12@sm">
+        <h2 class="docs-type-header-1">Aspect Boxes</h2>
+        <blockquote class="docs-blockquote">
+          <p>Maintain an aspect ratio with <code>padding-bottom</code>.</p>
+        </blockquote>
+        <p class="docs-type-body-2">Aspect boxes are most useful for holding images and other content which loads later. This way when the image loads, it does not change the layout of the page.</p>
+        <p class="docs-type-body-2">Available ratios are <code>.aspect--</code> with any of the available sizes: {{ ratio_list }} as well as <code>none</code>. For example, <code>.aspect--16x9</code> or <code>.aspect--2x1@sm</code>.</p>
+      </div>
+    </div>
+    <div class="row">
+      {% for name in ratio_names %}
+        {% set colour = 245 - (loop.index0 * 20) %}
+        <div class="col-4@sm spacer-top-small">
+          <div class="aspect aspect--{{ name }}" style="background-color:rgb({{ colour }}, {{ colour }}, {{ colour }})">
+            <div class="aspect__inner flex align-items-center justify-content-center"><code>{{ name }}</code></div>
+          </div>
+        </div>
+      {% endfor %}
+      {% set colour = 245 - (ratio_names.length * 20) %}
+      <div class="col-4@sm spacer-top-small">
+        <div class="aspect aspect--2x1 aspect--none@sm" style="background-color:rgb({{ colour }}, {{ colour }}, {{ colour }})">
+          <div class="aspect__inner flex align-items-center justify-content-center"><code>aspect--2x1 aspect--none@sm</code></div>
+        </div>
+      </div>
+      {% set colour = 245 - ((ratio_names.length + 1) * 20) %}
+      <div class="col-4@sm spacer-top-small">
+        <div class="aspect aspect--2x1 aspect--none@xs" style="background-color:rgb({{ colour }}, {{ colour }}, {{ colour }})">
+          <div class="aspect__inner flex align-items-center justify-content-center"><code>aspect--2x1 aspect--none@xs</code></div>
+        </div>
+      </div>
+      {% set colour = 245 - ((ratio_names.length + 2) * 20) %}
+      <div class="col-4@sm spacer-top-small">
+        <div class="aspect aspect--16x9@xs aspect--2x1@sm" style="background-color:rgb({{ colour }}, {{ colour }}, {{ colour }})">
+          <div class="aspect__inner flex align-items-center justify-content-center"><code>aspect--16x9@xs aspect--2x1@sm</code></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

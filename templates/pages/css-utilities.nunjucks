@@ -16,5 +16,6 @@
   {% include "partials/flag-objects.nunjucks" %}
   {% include "partials/centering-demo.nunjucks" %}
   {% include "partials/fill-parent-demo.nunjucks" %}
+  {% include "partials/aspect-boxes.nunjucks" %}
   {% include "partials/css-classes.nunjucks" %}
 {% endblock %}
