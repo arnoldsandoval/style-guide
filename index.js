@@ -16,3 +16,8 @@ module.exports.configure = function configure(options) {
   // Export gulp tasks.
   gulpLoadTasks(path.join(__dirname, 'tasks'));
 };
+
+// Allow modifying the config after it has been initialized.
+module.exports.getConfig = function getConfig() {
+  return config.current;
+};
