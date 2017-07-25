@@ -21,7 +21,9 @@
     "require-dir": "^0.3.0",
     "require-linked-peer": "^0.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ava": "^0.21.0"
+  },
   "peerDependencies": {
     "gulp": "^3.9.1"
   },
@@ -38,5 +40,7 @@
   ],
   "keywords": [],
   "license": "MIT",
-  "scripts": {}
+  "scripts": {
+    "test": "ava"
+  }
 }

@@ -11,9 +11,10 @@ function hexdec(hex) {
  * @author Christopher Mischler
  */
 function getColorBrightness(hex) {
-  const r = hexdec(hex.substr(1, 2));
-  const g = hexdec(hex.substr(3, 2));
-  const b = hexdec(hex.substr(5, 2));
+  const value = hex.replace('#', '');
+  const r = hexdec(value.substr(0, 2));
+  const g = hexdec(value.substr(2, 2));
+  const b = hexdec(value.substr(4, 2));
 
   // Simple weighted avarage.
   // This might be overly simplistic as different colors are perceived

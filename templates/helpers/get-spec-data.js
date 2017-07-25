@@ -1,6 +1,10 @@
+/* eslint no-use-before-define: ["error", { "functions": false }] */
+
 // Make base styles and breakpoint styles.
+
 const reduce = require('lodash/reduce');
 const forEach = require('lodash/forEach');
+const mapKeys = require('lodash/mapKeys');
 const trimSingleQuotes = require('./trim-single-quotes');
 
 const SPECIAL = [
@@ -34,14 +38,27 @@ function getDisplaySelector(selector) {
   return '.' + selector;
 }
 
+// Prepend qualifer selector.
+// Run through this method again to collect all styles.
+function getQualifiers(selector, data, variables) {
+  const newKeys = mapKeys(data, (v, k) => `${trimSingleQuotes(k)} .${selector}`);
+  return mapData(newKeys, variables);
+}
+
+// Append the modifier to each selector.
+// Run through this method again to collect all styles.
+function getModifiers(selector, data, variables) {
+  const newKeys = mapKeys(data, (v, k) => `${selector}--${trimSingleQuotes(k)}`);
+  return mapData(newKeys, variables);
+}
+
 function mapData(selectorData, variables) {
   return reduce(selectorData, (result, declarations, selector) => {
-    selector = trimSingleQuotes(selector);
+    const trimmedSelector = trimSingleQuotes(selector);
     const displaySelector = getDisplaySelector(selector);
 
     const baseStyles = {};
     let qualifiers = null;
-    let modifiers = null;
 
     // Go through each selector's declarations.
     forEach(declarations, (value, property) => {
@@ -49,40 +66,25 @@ function mapData(selectorData, variables) {
       if (!SPECIAL.includes(property)) {
         baseStyles[property] = getValue(property, value, variables);
       } else if (property === 'qualifiers') {
-        // Prepend the qualifier to each selector.
-        const qData = reduce(value, (result, obj, parentSelector) => {
-          result[parentSelector + ' .' + selector] = obj;
-          return result;
-        }, {});
-
         // Run through this method again to collect all styles.
-        qualifiers = mapData(qData, variables);
+        qualifiers = getQualifiers(trimmedSelector, value, variables);
       } else if (property === 'modifiers') {
-        // Append the modifier to each selector.
-        const qData = reduce(value, (result, obj, modifier) => {
-          result[selector + '--' + trimSingleQuotes(modifier)] = obj;
-          return result;
-        }, {});
-
-        // Run through this method again to collect all styles.
-        modifiers = mapData(qData, variables);
+        const modifiers = getModifiers(trimmedSelector, value, variables);
+        // Add modifiers as top-level selectors in results.
+        forEach(modifiers, (obj, mSelector) => {
+          obj.isModifier = true;
+          result[mSelector] = obj;
+        });
       }
     });
 
-    result[selector] = {
+    result[trimmedSelector] = {
       displaySelector,
       baseStyles,
-      breakpoints: declarations.breakpoints,
+      breakpoints: declarations.breakpoints || null,
       qualifiers,
-      'docs-demo': declarations['docs-demo'],
+      'docs-demo': declarations['docs-demo'] || null,
     };
-
-    if (modifiers) {
-      forEach(modifiers, (obj, mSelector) => {
-        obj.isModifier = true;
-        result[mSelector] = obj;
-      });
-    }
 
     return result;
   }, {});
