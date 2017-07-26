@@ -19,6 +19,7 @@ module.exports = {
   themeColor: '#03a9fa',
   templatePath: null,
   iconPath: null,
+  docsCssPath: null,
   homeLink: 'index.html',
   directoryLinks: {
     'Style Guide': [

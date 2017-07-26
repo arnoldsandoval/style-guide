@@ -102,6 +102,16 @@ default: `null`
 
 If defined, Odopod Style Guide will search this directory for any `.svg` files, then include them on the `ui-components` page at the bottom via a `<use>` tag.
 
+#### `docsCssPath`
+
+default: `null`
+
+If defined, this file will be `@import`ed in the main doc.scss file, allowing you to add your own custom styles to the style guide.
+
+```js
+docsCssPath: './my-docs-theme.scss',
+```
+
 #### `homeLink`
 
 default: `'index.html'`
