@@ -25,7 +25,8 @@
           <div class="docs-color-swatch aspect background--{{ swatchName }} {{ borderClass }}"></div>
           <div class="docs-color-labels">
             <span class="docs-type-classname docs-type-classname--blocky">{{ swatchName }}</span>
-            <span class="docs-type-property">{{ valueDisplay }}</span>
+            <br>
+            <code>{{ valueDisplay }}</code>
           </div>
         </div>
       {% endfor %}

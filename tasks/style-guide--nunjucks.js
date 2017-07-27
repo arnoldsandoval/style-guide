@@ -6,6 +6,7 @@ const uniqBy = require('lodash/uniqBy');
 const gulpNunjucks = require('gulp-nunjucks-render');
 const config = require('../config');
 const trimSingleQuotes = require('../templates/helpers/trim-single-quotes');
+const groupStyles = require('../templates/helpers/group-styles');
 
 const gulp = requirePeer('gulp');
 
@@ -49,6 +50,7 @@ function getNunjucksOptions() {
     manageEnv(env) {
       // macros do not have access to the template's context (data, methods, etc.).
       env.addGlobal('trimSingleQuotes', trimSingleQuotes);
+      env.addGlobal('groupStyles', groupStyles);
       env.addGlobal('size', obj => Object.keys(obj).length);
     },
   };

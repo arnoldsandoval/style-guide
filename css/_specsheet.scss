@@ -21,7 +21,6 @@
 
 .docs-type-property {
   display: block !important;
-  font-size: 10px;
 }
 
 // A Simplesheet is what I'm calling the dimple docs pages that are mostly editorial,
@@ -39,14 +38,14 @@
   position: relative;
 
   // had to moke the border for the right column into a pseudoelement for proper top alignment due to vertical center.
-  &:before {
+  &::before {
     content: '';
     display: block;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    border-top: solid 1px map-get($docs-colors, docsGray70);
+    border-top: 2px solid map-get($docs-colors, theme);
     z-index: 2;
   }
 }
@@ -63,20 +62,16 @@
 
 .docs-specsheet__col-right--light {
   background: map-get($docs-colors, docsGray70);
-  border-left: dotted 1px rgba(map-get($docs-colors, docsGray80),0.6);
+  border-left: dotted 1px rgba(map-get($docs-colors, docsGray80), 0.6);
 }
 
 .docs-specsheet__col-right--dark {
   background: map-get($docs-colors, docsGray50);
-  border-left: dotted 1px rgba(map-get($docs-colors, docsGray50),0.6);
+  border-left: dotted 1px rgba(map-get($docs-colors, docsGray50), 0.6);
 }
 
-.docs-specsheet__row--modifier:before {
-  border-top: dotted 1px rgba(map-get($docs-colors, docsGray40),0.6);
-}
-
-.docs-specsheet__row--modifier .docs-specsheet__col-left:before {
-  border-top: dotted 1px rgba(map-get($docs-colors, docsGray40),0.6);
+.docs-specsheet__row--related::before {
+  border-top: 1px dotted map-get($docs-colors, docsGray70);
 }
 
 @include breakpoint(sm) {
@@ -99,8 +94,7 @@
   margin-top: px-rem(24);
 }
 
-.docs-type-specsheet-header,
-.docs-type-property {
+.docs-type-specsheet-header {
   display: block;
 }
 

@@ -2,7 +2,7 @@ import test from 'ava';
 import getSpecData from '../templates/helpers/get-spec-data';
 
 
-test('it will place all styles in `baseStyles`', (t) => {
+test('it will place all styles in `base.styles`', (t) => {
   t.deepEqual(getSpecData({
     'type-display-1': {
       color: 'orangered',
@@ -10,14 +10,16 @@ test('it will place all styles in `baseStyles`', (t) => {
     },
   }), {
     'type-display-1': {
-      baseStyles: {
-        color: 'orangered',
-        'margin-bottom': 0,
+      base: {
+        selector: 'type-display-1',
+        displaySelector: '.type-display-1',
+        styles: {
+          color: 'orangered',
+          'margin-bottom': 0,
+        },
+        breakpoints: null,
+        'docs-demo': null,
       },
-      displaySelector: '.type-display-1',
-      breakpoints: null,
-      qualifiers: null,
-      'docs-demo': null,
     },
   });
 });
@@ -40,28 +42,30 @@ test('it can have breakpoint-specific styles', (t) => {
     },
   }), {
     'type-display-1': {
-      baseStyles: {
-        color: 'orangered',
-        'margin-bottom': 0,
-      },
-      displaySelector: '.type-display-1',
-      breakpoints: {
-        sm: {
-          'font-size': 24,
-          'margin-bottom': 4,
+      base: {
+        selector: 'type-display-1',
+        displaySelector: '.type-display-1',
+        styles: {
+          color: 'orangered',
+          'margin-bottom': 0,
         },
-        md: {
-          'font-size': 28,
-          'margin-bottom': 8,
+        breakpoints: {
+          sm: {
+            'font-size': 24,
+            'margin-bottom': 4,
+          },
+          md: {
+            'font-size': 28,
+            'margin-bottom': 8,
+          },
         },
+        'docs-demo': null,
       },
-      qualifiers: null,
-      'docs-demo': null,
     },
   });
 });
 
-test('it can separate modifiers into their own selectors and add `isModifier` property', (t) => {
+test('it can separate modifiers into their own object', (t) => {
   t.deepEqual(getSpecData({
     'type-display-1': {
       color: 'orangered',
@@ -74,24 +78,29 @@ test('it can separate modifiers into their own selectors and add `isModifier` pr
     },
   }), {
     'type-display-1': {
-      baseStyles: {
-        color: 'orangered',
-        'margin-bottom': 0,
+      base: {
+        selector: 'type-display-1',
+        displaySelector: '.type-display-1',
+        styles: {
+          color: 'orangered',
+          'margin-bottom': 0,
+        },
+        breakpoints: null,
+        'docs-demo': null,
       },
-      displaySelector: '.type-display-1',
-      breakpoints: null,
-      qualifiers: null,
-      'docs-demo': null,
-    },
-    'type-display-1--small': {
-      baseStyles: {
-        'font-size': 12,
+      modifiers: {
+        'type-display-1--small': {
+          base: {
+            selector: 'type-display-1--small',
+            displaySelector: '.type-display-1--small',
+            styles: {
+              'font-size': 12,
+            },
+            breakpoints: null,
+            'docs-demo': null,
+          },
+        },
       },
-      displaySelector: '.type-display-1--small',
-      breakpoints: null,
-      qualifiers: null,
-      'docs-demo': null,
-      isModifier: true,
     },
   });
 });
@@ -119,38 +128,43 @@ test('it can combine modifiers and breakpoints', (t) => {
     },
   }), {
     'type-display-1': {
-      baseStyles: {
-        color: 'orangered',
-        'margin-bottom': 0,
-      },
-      displaySelector: '.type-display-1',
-      breakpoints: null,
-      qualifiers: null,
-      'docs-demo': null,
-    },
-    'type-display-1--small': {
-      baseStyles: {
-        'font-size': 12,
-      },
-      displaySelector: '.type-display-1--small',
-      breakpoints: {
-        sm: {
-          'font-size': 24,
-          'margin-bottom': 4,
+      base: {
+        selector: 'type-display-1',
+        displaySelector: '.type-display-1',
+        styles: {
+          color: 'orangered',
+          'margin-bottom': 0,
         },
-        md: {
-          'font-size': 28,
-          'margin-bottom': 8,
+        breakpoints: null,
+        'docs-demo': null,
+      },
+      modifiers: {
+        'type-display-1--small': {
+          base: {
+            selector: 'type-display-1--small',
+            displaySelector: '.type-display-1--small',
+            styles: {
+              'font-size': 12,
+            },
+            breakpoints: {
+              sm: {
+                'font-size': 24,
+                'margin-bottom': 4,
+              },
+              md: {
+                'font-size': 28,
+                'margin-bottom': 8,
+              },
+            },
+            'docs-demo': null,
+          },
         },
       },
-      qualifiers: null,
-      'docs-demo': null,
-      isModifier: true,
     },
   });
 });
 
-test('it will put state objects in baseStyles', (t) => {
+test('it will put pseudo class objects in styles', (t) => {
   t.deepEqual(getSpecData({
     'type-display-1': {
       color: 'orangered',
@@ -158,49 +172,55 @@ test('it will put state objects in baseStyles', (t) => {
       hover: {
         color: 'blue',
       },
+      '::after': {
+        position: 'absolute',
+      },
     },
   }), {
     'type-display-1': {
-      baseStyles: {
-        color: 'orangered',
-        'margin-bottom': 0,
-        hover: {
-          color: 'blue',
+      base: {
+        selector: 'type-display-1',
+        displaySelector: '.type-display-1',
+        styles: {
+          color: 'orangered',
+          'margin-bottom': 0,
+          hover: {
+            color: 'blue',
+          },
+          '::after': {
+            position: 'absolute',
+          },
         },
+        breakpoints: null,
+        'docs-demo': null,
       },
-      displaySelector: '.type-display-1',
-      breakpoints: null,
-      qualifiers: null,
-      'docs-demo': null,
     },
   });
 });
 
 test('it will display the real font family name if available', (t) => {
-  t.deepEqual(getSpecData({
-    'type-display-1': {
-      color: 'orangered',
-      'font-family': 'sans-serif',
-    },
-  }), {
-    'type-display-1': {
-      baseStyles: {
-        color: 'orangered',
-        'font-family': 'sans-serif',
-      },
-      displaySelector: '.type-display-1',
-      breakpoints: null,
-      qualifiers: null,
-      'docs-demo': null,
-    },
-  });
-
   const data = {
     'type-display-1': {
       color: 'orangered',
       'font-family': 'sans-serif',
     },
   };
+
+  t.deepEqual(getSpecData(data), {
+    'type-display-1': {
+      base: {
+        selector: 'type-display-1',
+        displaySelector: '.type-display-1',
+        styles: {
+          color: 'orangered',
+          'font-family': 'sans-serif',
+        },
+        breakpoints: null,
+        'docs-demo': null,
+      },
+    },
+  });
+
   const variables = {
     'font-families': {
       'sans-serif': '\'"San Francisco", Helvetica, sans-serif\'',
@@ -209,14 +229,16 @@ test('it will display the real font family name if available', (t) => {
 
   t.deepEqual(getSpecData(data, variables), {
     'type-display-1': {
-      baseStyles: {
-        color: 'orangered',
-        'font-family': 'San Francisco',
+      base: {
+        selector: 'type-display-1',
+        displaySelector: '.type-display-1',
+        styles: {
+          color: 'orangered',
+          'font-family': 'San Francisco',
+        },
+        breakpoints: null,
+        'docs-demo': null,
       },
-      displaySelector: '.type-display-1',
-      breakpoints: null,
-      qualifiers: null,
-      'docs-demo': null,
     },
   });
 });

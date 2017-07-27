@@ -1,6 +1,6 @@
 /* eslint no-use-before-define: ["error", { "functions": false }] */
 
-// Make base styles and breakpoint styles.
+// Parse json input into an object with selectors as keys.
 
 const reduce = require('lodash/reduce');
 const forEach = require('lodash/forEach');
@@ -55,36 +55,31 @@ function getModifiers(selector, data, variables) {
 function mapData(selectorData, variables) {
   return reduce(selectorData, (result, declarations, selector) => {
     const trimmedSelector = trimSingleQuotes(selector);
-    const displaySelector = getDisplaySelector(selector);
 
-    const baseStyles = {};
-    let qualifiers = null;
+    const data = {
+      base: {
+        displaySelector: getDisplaySelector(selector),
+        selector: trimmedSelector,
+        styles: {},
+        breakpoints: declarations.breakpoints || null,
+        'docs-demo': declarations['docs-demo'] || null,
+      },
+    };
 
     // Go through each selector's declarations.
     forEach(declarations, (value, property) => {
       // Collect all styles that are always applied to the element.
       if (!SPECIAL.includes(property)) {
-        baseStyles[property] = getValue(property, value, variables);
+        data.base.styles[property] = getValue(property, value, variables);
       } else if (property === 'qualifiers') {
         // Run through this method again to collect all styles.
-        qualifiers = getQualifiers(trimmedSelector, value, variables);
+        data.qualifiers = getQualifiers(trimmedSelector, value, variables);
       } else if (property === 'modifiers') {
-        const modifiers = getModifiers(trimmedSelector, value, variables);
-        // Add modifiers as top-level selectors in results.
-        forEach(modifiers, (obj, mSelector) => {
-          obj.isModifier = true;
-          result[mSelector] = obj;
-        });
+        data.modifiers = getModifiers(trimmedSelector, value, variables);
       }
     });
 
-    result[trimmedSelector] = {
-      displaySelector,
-      baseStyles,
-      breakpoints: declarations.breakpoints || null,
-      qualifiers,
-      'docs-demo': declarations['docs-demo'] || null,
-    };
+    result[trimmedSelector] = data;
 
     return result;
   }, {});

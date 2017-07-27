@@ -11,62 +11,84 @@
 {% endmacro %}
 
 {# Print demo element with red line toggles to see borders #}
-{% macro demo_element(selector, properties) %}
+{% macro demo_element(properties) %}
   <div class="docs-demo-element">
     <div class="docs-true-text-margins-demo--red-line"></div>
-    {{ demo_content(selector, properties) }}
+    {{ demo_content(properties) }}
     <div class="docs-true-text-margins-demo--red-line"></div>
   </div>
 {% endmacro %}
 
 {# Print demo content (html, or text) #}
-{% macro demo_content(selector, properties) %}
+{% macro demo_content(properties) %}
   {% set demo = properties["docs-demo"] %}
   {% set alignCenterClass = "type--center" if demo["text-center"] else "" %}
 
   {% if demo["demo-markup"] %}
     {{ trimSingleQuotes(demo["demo-markup"]) }}
   {% elif demo["demo-text"] %}
-    <p class="{{ selector }}{{ alignCenterClass }}">{{ trimSingleQuotes(demo["demo-text"]) }}</p>
+    <p class="{{ properties.selector }}{{ alignCenterClass }}">{{ trimSingleQuotes(demo["demo-text"]) }}</p>
     {% if demo["demo-text2"] %}
-      <p class="{{ selector }}{{ alignCenterClass }}">{{ trimSingleQuotes(demo["demo-text2"]) }}</p>
+      <p class="{{ properties.selector }}{{ alignCenterClass }}">{{ trimSingleQuotes(demo["demo-text2"]) }}</p>
     {% endif %}
   {% endif %}
 {% endmacro %}
 
 {# Display base styles for an element and then its breakpoints #}
 {% macro selector_properties(properties) %}
-  {{ property_section("All Breakpoints", properties.baseStyles) }}
+  {% if size(properties.styles) > 0 %}
+    <p class="docs-type-label-1">All Breakpoints</p>
+    {{ property_section(properties.styles) }}
+  {% endif %}
 
   {% for breakpointName, styles in properties.breakpoints %}
-    {{ property_section(breakpointName, styles) }}
+    <p class="marginless">
+      <span class="docs-type-label-1">breakpoint:</span>
+      <code class="docs-type-label-2 type--bold">{{ breakpointName }}</code>
+    </p>
+    {{ property_section(styles) }}
   {% endfor %}
 {% endmacro %}
 
 {# Section of declarations (property: value) pairs. #}
-{% macro property_section(title, group) %}
-  <h6 class="docs-type-label-1 type--uppercase">{{ title }}</h6>
+{% macro property_section(styles) %}
+  {% for group in groupStyles(styles) %}
+    {% if group.title and size(group.styles) > 0 %}
+      <code class="docs-type-label-2">{{ group.title }}</code>
+    {% endif %}
 
-  <div class="">
-    {% for property, value in group %}
-
-      {# Show hover, active, and focus states with a title #}
-      {% if (property == "hover" or property == "active" or property == "focus" or property == "visited") %}
-        {% if size(value) > 0 %}
-          <p class="docs-type-label-1">:{{ property }}</p>
-
-          {% for prop, val in value %}
-            {{ declaration(prop, val) }}
-          {% endfor %}
-        {% endif %}
-
-      {% else %}
+    <div>
+      {% for property, value in group.styles %}
         {{ declaration(property, value) }}
-      {% endif %}
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
 {% endmacro %}
 
 {% macro declaration(property, value) -%}
   <code class="docs-type-property">{{ property }}: <span class="type--bold">{{ value }}</span></code>
 {%- endmacro %}
+
+{% macro specsheet_with_demo(properties, baseSelector) %}
+  {% set modifierClass = " docs-specsheet__row--related" if baseSelector else "" %}
+  <div class="row row--gutterless docs-specsheet__row{{ modifierClass }}" id="{{ properties.displaySelector | replace(" ", "-") }}">
+    <div class="col-4@sm">
+      <div class="docs-selector-header">
+        <h4 class="docs-type-classname docs-color--white">{{ properties.displaySelector }}</h4>
+      </div>
+      <div class="docs-specsheet__col-left spacer-btm-small">{{ selector_properties(properties) }}</div>
+    </div>
+    <div class="col-8@sm">
+      {%- set backgroundClass -%}
+        {%- if properties['docs-demo']['dark-background'] -%}
+          docs-specsheet__col-right--dark
+        {%- elif properties['docs-demo']['light-background'] -%}
+          docs-specsheet__col-right--light
+        {%- endif -%}
+      {%- endset %}
+      <div class="docs-specsheet__col-right {{ backgroundClass }}">
+        {{ demo_element(properties) }}
+      </div>
+    </div>
+  </div>
+{% endmacro %}

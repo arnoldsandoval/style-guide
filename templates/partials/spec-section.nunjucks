@@ -4,49 +4,32 @@
   <div class="container">
     <div class="row">
       <div class="col-6@sm">
-        <h4 class="docs-type-header-2">{{ sectionTitle }}</h4>
+        <h4 class="docs-type-header-2">{{ trimSingleQuotes(sectionTitle) }}</h4>
       </div>
     </div>
 
     {# Loop through all the items (typestyles, buttons, etc.) in this section #}
-    {% for selector, properties in getSpecData(selectors, variables) %}
+    {% for baseSelector, groups in getSpecData(selectors, variables) %}
       {# Ignore selectors without demos #}
-      {% set demo = properties['docs-demo'] %}
-      {% if demo %}
-        {% set modifierClass = "docs-specsheet__row--modifier" if properties.isModifier else "" %}
-        <div class="row row--gutterless docs-specsheet__row {{ modifierClass }}" id="{{ selector }}">
-          <div class="col-4@sm">
-            <div class="docs-selector-header">
-              <h4 class="docs-type-classname docs-color--white">{{ properties.displaySelector }}</h4>
-            </div>
-            <div class="docs-specsheet__col-left spacer-btm-small">
-              {{ utils.selector_properties(properties) }}
-
-              {% if properties.qualifiers %}
-                <h5 class="docs-type-label-1 type--uppercase">Qualifiers</h5>
-
-                {% for qualifer, props in properties.qualifiers %}
-                  <h5 class="docs-type-label-1">{{ props.displaySelector }}</h5>
-                  {{ utils.selector_properties(props) }}
-                {% endfor %}
+      {% if groups.base['docs-demo'] %}
+        <div>
+          {{ utils.specsheet_with_demo(groups.base) }}
+          {% if groups.qualifiers %}
+            {% for selector, props in groups.qualifiers %}
+              {% if props.base['docs-demo'] %}
+                {{ utils.specsheet_with_demo(props.base, groups.base.selector) }}
               {% endif %}
-
-            </div>
-          </div>
-          <div class="col-8@sm">
-            {%- set backgroundClass -%}
-              {%- if demo['dark-background'] -%}
-                docs-specsheet__col-right--dark
-              {%- elif demo['light-background'] -%}
-                docs-specsheet__col-right--light
-              {%- endif -%}
-            {%- endset %}
-            <div class="docs-specsheet__col-right {{ backgroundClass }}">
-              {{ utils.demo_element(selector, properties) }}
-            </div>
-          </div>
+            {% endfor %}
+          {% endif %}
+          {% if groups.modifiers %}
+            {% for selector, props in groups.modifiers %}
+              {% if props.base['docs-demo'] %}
+                {{ utils.specsheet_with_demo(props.base, groups.base.selector) }}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
-        {% endif %}
+      {% endif %}
     {% endfor %}
   </div>
 </section>

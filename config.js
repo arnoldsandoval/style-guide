@@ -9,6 +9,7 @@ const color = require('./templates/helpers/color');
 const trimSingleQuotes = require('./templates/helpers/trim-single-quotes');
 const getObjectKeys = require('./templates/helpers/get-object-keys');
 const getRatioNames = require('./templates/helpers/get-ratio-names');
+const groupStyles = require('./templates/helpers/group-styles');
 
 const root = path.resolve(__dirname);
 
@@ -28,6 +29,7 @@ module.exports = {
     getObjectKeys,
     trimSingleQuotes,
     getRatioNames,
+    groupStyles,
   },
 
   patterns: {
