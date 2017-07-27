@@ -1,4 +1,4 @@
-# Odopod Style Guide
+# Odopod Style Guide [![Build Status](https://travis-ci.org/odopod/style-guide.svg?branch=master)](https://travis-ci.org/odopod/style-guide)
 
 > A hackable, living style guide for Odopod projects.
 
