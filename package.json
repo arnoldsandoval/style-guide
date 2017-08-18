@@ -22,7 +22,7 @@
     "require-linked-peer": "^0.1.0"
   },
   "devDependencies": {
-    "ava": "^0.21.0"
+    "ava": "^0.22.0"
   },
   "peerDependencies": {
     "gulp": "^3.9.1"
