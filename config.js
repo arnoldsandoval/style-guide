@@ -22,16 +22,6 @@ module.exports = {
     scss: path.join(root, 'css'),
   },
 
-  templateUtils: {
-    color,
-    getFilteredColors,
-    getSpecData,
-    getObjectKeys,
-    trimSingleQuotes,
-    getRatioNames,
-    groupStyles,
-  },
-
   patterns: {
     js: '**/*.js',
     json: '**/*.json',
@@ -59,11 +49,23 @@ function getIcons(iconDirectory) {
 
 module.exports.getTemplateData = function getTemplateData() {
   // Read all .json files into an object and merge with the user-defined config.
+  const icons = { iconList: getIcons(module.exports.current.iconPath) };
+  const jsonFiles = requireDir(module.exports.current.jsonSource, { camelcase: true });
+  const templateUtils = {
+    color,
+    getFilteredColors,
+    getSpecData,
+    getObjectKeys,
+    trimSingleQuotes,
+    getRatioNames,
+    groupStyles,
+  };
+
   return Object.assign(
     {},
     module.exports.current,
-    { iconList: getIcons(module.exports.current.iconPath) },
-    requireDir(module.exports.current.jsonSource, { camelcase: true }),
-    module.exports.templateUtils
+    icons,
+    jsonFiles,
+    templateUtils
   );
 };
