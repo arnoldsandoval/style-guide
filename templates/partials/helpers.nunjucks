@@ -26,6 +26,8 @@
 
   {% if demo["demo-markup"] %}
     {{ trimSingleQuotes(demo["demo-markup"]) }}
+  {% elif demo["demo-file"] %}
+    {% include trimSingleQuotes(demo["demo-file"]) %}
   {% elif demo["demo-text"] %}
     <p class="{{ properties.selector }}{{ alignCenterClass }}">{{ trimSingleQuotes(demo["demo-text"]) }}</p>
     {% if demo["demo-text2"] %}
