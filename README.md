@@ -2,6 +2,8 @@
 
 > A hackable, living style guide for Odopod projects.
 
+The Odopod style guide reads JSON files for type styles, UI components, and other variables to generate style guide pages. See the [writing CSS with JSON](https://github.com/odopod/code-library/blob/master/packages/odo-sassplate/README.md#writing-css-with-json) section in [OdoSassplate][sassplate] for more details on the JSON.
+
 ## Install
 
 ```bash
@@ -39,7 +41,7 @@ All availabe options can be found in [defaults.js](defaults.js).
 
 default: `null`
 
-A string path to the .json files which Odopod Sassplate uses.
+A string path to the .json files which [Odopod Sassplate][sassplate] uses.
 
 #### `title`
 
@@ -138,7 +140,7 @@ renamePages: (filepath) => {
 
 ## Basic Example
 
-[Odo Sassplate](https://github.com/odopod/code-library/tree/master/packages/odo-sassplate) uses Odopod Style Guide. Here's that configuration.
+[Odo Sassplate][sassplate] uses Odopod Style Guide. Here's that configuration.
 
 ```js
 const styleguide = require('@odopod/style-guide');
@@ -157,3 +159,5 @@ styleguide.configure({
   },
 });
 ```
+
+[sassplate]: https://github.com/odopod/code-library/tree/master/packages/odo-sassplate
