@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const requireDir = require('require-dir');
+const camelcase = require('camelcase');
 
 // Helpers
 const getFilteredColors = require('./templates/helpers/get-filtered-colors');
@@ -50,7 +51,9 @@ function getIcons(iconDirectory) {
 module.exports.getTemplateData = function getTemplateData() {
   // Read all .json files into an object and merge with the user-defined config.
   const icons = { iconList: getIcons(module.exports.current.iconPath) };
-  const jsonFiles = requireDir(module.exports.current.jsonSource, { camelcase: true });
+  const jsonFiles = requireDir(module.exports.current.jsonSource, {
+    mapKey: (value, base) => camelcase(base),
+  });
   const templateUtils = {
     color,
     getFilteredColors,
