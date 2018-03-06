@@ -1,42 +1,36 @@
 <section class="docs-simplesheet__section" id="flag-objects">
   <div class="container">
-    <div class="row">
-      <div class="col-12@sm">
-        <h2 class="docs-type-header-1">Flag Object</h2>
-        <blockquote class="docs-blockquote">
-          <p>An object (like an image) and content to the right or left. <a href="https://csswizardry.com/2013/05/the-flag-object/" class="type-link-text-1">Source</a></p>
-        </blockquote>
-        <p class="docs-type-body-3"><strong class="type--bold">Heads up!</strong> For this method to work, the image cannot have <code>max-width: 100%;</code> so it is set to <code>none</code>. Hi resolution images may grow larger than you expect. To avoid this, set a width on the image.</p>
-      </div>
+    <div class="col-12@sm">
+      <h2 class="docs-type-header-1">Flag Object</h2>
+      <blockquote class="docs-blockquote">
+        <p>An object (like an image) and content to the right or left. <a href="https://csswizardry.com/2013/05/the-flag-object/" class="type-link-text-1">Source</a></p>
+      </blockquote>
+      <p class="docs-type-body-3"><strong class="type--bold">Heads up!</strong> For this method to work, the image cannot have <code>max-width: 100%;</code> so it is set to <code>none</code>. Hi resolution images may grow larger than you expect. To avoid this, set a width on the image.</p>
     </div>
-    <div class="row">
-      <div class="col-9@sm">
-        <div class="flag docs-flag-object-example">
-          <div class="flag__image"><img src="https://placehold.it/120/222626" alt=""></div>
-          <div class="flag__body">
-            <p class="docs-type-body-2">Pellentesque habitant.</p>
-          </div>
+    <div class="col-9@sm">
+      <div class="flag docs-flag-object-example">
+        <div class="flag__image"><img src="https://placehold.it/120/222626" alt=""></div>
+        <div class="flag__body">
+          <p class="docs-type-body-2">Pellentesque habitant.</p>
         </div>
-        <div class="flag flag--top docs-flag-object-example">
-          <div class="flag__image"><img src="https://placehold.it/120/222626" alt=""></div>
-          <div class="flag__body">
-            <p class="docs-type-body-2"><strong class="type--bold">Top aligned</strong>. Pellentesque habitant.</p>
-          </div>
+      </div>
+      <div class="flag flag--top docs-flag-object-example">
+        <div class="flag__image"><img src="https://placehold.it/120/222626" alt=""></div>
+        <div class="flag__body">
+          <p class="docs-type-body-2"><strong class="type--bold">Top aligned</strong>. Pellentesque habitant.</p>
         </div>
-        <div class="flag flag--bottom docs-flag-object-example">
-          <div class="flag__image"><img src="https://placehold.it/120/222626" alt=""></div>
-          <div class="flag__body">
-            <p class="docs-type-body-2"><strong class="type--bold">Bottom aligned</strong>. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.</p>
-          </div>
+      </div>
+      <div class="flag flag--bottom docs-flag-object-example">
+        <div class="flag__image"><img src="https://placehold.it/120/222626" alt=""></div>
+        <div class="flag__body">
+          <p class="docs-type-body-2"><strong class="type--bold">Bottom aligned</strong>. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.</p>
         </div>
       </div>
     </div>
-
-    <div class="row spacer-top-small">
-      <div class="col-12@sm">
-        <h3 class="docs-type-header-4">Markup</h3>
-        <div class="docs-markup-container docs-dark-block">
-          <pre><code class="language-markup">&lt;div class="flag flag--bottom"&gt;
+    <div class="col-12@sm spacer-top-small">
+      <h3 class="docs-type-header-4">Markup</h3>
+      <div class="docs-markup-container docs-dark-block">
+        <pre><code class="language-markup">&lt;div class="flag flag--bottom"&gt;
   &lt;div class="flag__image"&gt;
     &lt;img src="https://placehold.it/120/222626"&gt;
   &lt;/div&gt;
@@ -44,7 +38,6 @@
     &lt;p&gt;Bottom aligned. Pellentesque habitant...&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
-        </div>
       </div>
     </div>
   </div>

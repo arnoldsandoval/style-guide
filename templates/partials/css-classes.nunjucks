@@ -1,18 +1,15 @@
 <section class="docs-simplesheet__section" id="css-classes">
   <div class="container">
-    <div class="row">
-      <div class="col-12@sm">
-        <h2 class="docs-type-header-1">Helper Classes</h2>
-        <blockquote class="docs-blockquote">
-          <p>Great for Composibility.</p>
-        </blockquote>
-        <p class="docs-type-body-1">Use these classes to avoid creating a new single CSS rule which would do the exact same thing.</p>
-      </div>
+    <div class="col-12@sm">
+      <h2 class="docs-type-header-1">Helper Classes</h2>
+      <blockquote class="docs-blockquote">
+        <p>Great for Composibility.</p>
+      </blockquote>
+      <p class="docs-type-body-1">Use these classes to avoid creating a new single CSS rule which would do the exact same thing.</p>
     </div>
-    <div class="row">
-      <div class="col-12@sm">
-        <div class="docs-markup-container docs-dark-block">
-          <pre><code class="language-scss">.relative { position: relative; }
+    <div class="col-12@sm">
+      <div class="docs-markup-container docs-dark-block">
+        <pre><code class="language-scss">.relative { position: relative; }
 .static { position: static; }
 .ib { display: inline-block; }
 .block { display: block; }
@@ -130,7 +127,6 @@
   background: none;
   border: 0;
 }</code></pre>
-        </div>
       </div>
     </div>
   </div>

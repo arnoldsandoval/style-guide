@@ -9,15 +9,13 @@
 
 {% block content %}
   <div class="container">
-    <div class="row">
-      <div class="col-12@sm">
-        <h1 class="docs-type-header-1">Site Colors</h1>
-        <blockquote class="docs-blockquote">
-          <p>Available colors to use. You should only use colors listed here.</p>
-        </blockquote>
-        <p class="docs-type-body-1">All colors have classes including <code>.background--[colorName]</code>, <code>.fill--[colorName]</code>, <code>.stroke--[colorName]</code>, <code>.type--[colorName]</code>, to apply to a background, fill, stroke, or typestyle, respectively.</p>
-        <p class="docs-type-body-1">Gradients only have the <code>.background--[gradientName]</code> class, which applies the linear gradient to the <code>background--image</code> attribute.
-      </div>
+    <div class="col-12@sm">
+      <h1 class="docs-type-header-1">Site Colors</h1>
+      <blockquote class="docs-blockquote">
+        <p>Available colors to use. You should only use colors listed here.</p>
+      </blockquote>
+      <p class="docs-type-body-1">All colors have classes including <code>.background--[colorName]</code>, <code>.fill--[colorName]</code>, <code>.stroke--[colorName]</code>, <code>.type--[colorName]</code>, to apply to a background, fill, stroke, or typestyle, respectively.</p>
+      <p class="docs-type-body-1">Gradients only have the <code>.background--[gradientName]</code> class, which applies the linear gradient to the <code>background--image</code> attribute.
     </div>
   </div>
 

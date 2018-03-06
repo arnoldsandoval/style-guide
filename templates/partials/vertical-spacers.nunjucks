@@ -16,47 +16,41 @@
 
 <section class="docs-simplesheet__section" id="vertical-spacers">
   <div class="container">
-    <div class="row">
-      <div class="col-12@sm">
-        <h2 class="docs-type-header-1">Vertical Spacers</h2>
-        <blockquote class="docs-blockquote">
-          <p>Add global top and bottom padding at a variety of sizes which adjust to breakpoints automatically.</p>
-        </blockquote>
-        <p class="docs-type-body-2">Available options are any combination of <code>.spacer-top-</code> or <code>.spacer-btm-</code> with any of the available sizes: {{ spacer_list }}. For example, <code>.spacer-top-small</code> or <code>.spacer-btm-large</code>.</p>
-        <p class="docs-type-body-2">Breakpoint suffixes for spacer classes are also available (e.g. <code>.spacer-btm-medium@md</code>)</p>
-      </div>
+    <div class="col-12@sm">
+      <h2 class="docs-type-header-1">Vertical Spacers</h2>
+      <blockquote class="docs-blockquote">
+        <p>Add global top and bottom padding at a variety of sizes which adjust to breakpoints automatically.</p>
+      </blockquote>
+      <p class="docs-type-body-2">Available options are any combination of <code>.spacer-top-</code> or <code>.spacer-btm-</code> with any of the available sizes: {{ spacer_list }}. For example, <code>.spacer-top-small</code> or <code>.spacer-btm-large</code>.</p>
+      <p class="docs-type-body-2">Breakpoint suffixes for spacer classes are also available (e.g. <code>.spacer-btm-medium@md</code>)</p>
     </div>
-    <div class="row">
-      <div class="col-12@sm">
-        <table class="docs-table">
-          <thead>
+    <div class="col-12@sm">
+      <table class="docs-table">
+        <thead>
+          <tr>
+            <th></th>
+            {% for name in spacer_names %}
+              <th>{{ name }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for breakpointKey, spacers in v_spacers %}
             <tr>
-              <th></th>
+              <th>{{ breakpointKey }}</th>
               {% for name in spacer_names %}
-                <th>{{ name }}</th>
+                <td>{{ spacers[name] }}</td>
               {% endfor %}
             </tr>
-          </thead>
-          <tbody>
-            {% for breakpointKey, spacers in v_spacers %}
-              <tr>
-                <th>{{ breakpointKey }}</th>
-                {% for name in spacer_names %}
-                  <td>{{ spacers[name] }}</td>
-                {% endfor %}
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-    <div class="row spacer-top-small">
-      <div class="col-9@sm">
-        {% for name in spacer_names %}
-          {% set colour = (loop.length - loop.index0) * 20 %}
-          <div class="spacer-top-{{ name }}" style="background-color:rgb({{ colour }}, {{ colour }}, {{ colour }})"></div>
-        {% endfor %}
-      </div>
+    <div class="col-9@sm spacer-top-small">
+      {% for name in spacer_names %}
+        {% set colour = (loop.length - loop.index0) * 20 %}
+        <div class="spacer-top-{{ name }}" style="background-color:rgb({{ colour }}, {{ colour }}, {{ colour }})"></div>
+      {% endfor %}
     </div>
   </div>
 </section>

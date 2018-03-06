@@ -4,10 +4,10 @@
 
 {% block content %}
   <section class="docs-section">
-    <div class="container spacer-top-small spacer-btm-large">
+    <div class="spacer-top-small spacer-btm-large">
       {% for name, list in directoryLinks %}
         {% if list | length > 0 %}
-          <div class="row spacer-top-large spacer-top-none:first">
+          <div class="container spacer-top-large spacer-top-none:first">
             <div class="col-4@md">
               <h2 class="docs-type-header-2">{{ name }}</h2>
             </div>

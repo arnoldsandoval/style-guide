@@ -2,11 +2,10 @@
 
 <section class="docs-specsheet__section">
   <div class="container">
-    <div class="row">
-      <div class="col-6@sm">
-        <h4 class="docs-type-header-2">{{ trimSingleQuotes(sectionTitle) }}</h4>
-      </div>
+    <div class="col-12@sm">
+      <h4 class="docs-type-header-2">{{ trimSingleQuotes(sectionTitle) }}</h4>
     </div>
+  </div>
 
     {# Loop through all the items (typestyles, buttons, etc.) in this section #}
     {% for baseSelector, groups in getSpecData(selectors, variables) %}

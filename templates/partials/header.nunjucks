@@ -3,24 +3,20 @@
 <header class="docs-page-header">
   <div class="container">
     {% if pageName %}
-      <div class="row">
-        <div class="col-4@sm">
-          <a href="{{ homeLink }}" class="docs-header-link-back text-link text-link--icon">
-            <svg class="icon icon--small" viewBox="0 0 24 24">
-              <path d="M15 20c-.3 0-.6-.1-.8-.3l-6-7c-.3-.4-.3-.9 0-1.3l6-7c.4-.4 1-.5 1.4-.1.4.4.5 1 .1 1.4L10.3 12l5.4 6.3c.4.4.3 1.1-.1 1.4-.1.2-.4.3-.6.3z"></path>
-            </svg><span class="text-link__text">Style guide home</span>
-          </a>
-        </div>
+      <div class="col-12@sm">
+        <a href="{{ homeLink }}" class="docs-header-link-back text-link text-link--icon">
+          <svg class="icon icon--small" viewBox="0 0 24 24">
+            <path d="M15 20c-.3 0-.6-.1-.8-.3l-6-7c-.3-.4-.3-.9 0-1.3l6-7c.4-.4 1-.5 1.4-.1.4.4.5 1 .1 1.4L10.3 12l5.4 6.3c.4.4.3 1.1-.1 1.4-.1.2-.4.3-.6.3z"></path>
+          </svg><span class="text-link__text">Style guide home</span>
+        </a>
       </div>
     {% endif %}
-    <div class="row">
-      <div class="col-6@sm">
-        <h2 class="docs-type-display-1">{{ pageName if pageName else "Style Guide" }}</h2>
-      </div>
-      <div class="col-6@sm type--right">
-        <p class="docs-type-subhead-1">{{ client }}</p>
-        <p class="docs-type-subhead-1 marginless">{{ name }}</p>
-      </div>
+    <div class="col-6@sm">
+      <h2 class="docs-type-display-1">{{ pageName if pageName else "Style Guide" }}</h2>
+    </div>
+    <div class="col-6@sm type--right">
+      <p class="docs-type-subhead-1">{{ client }}</p>
+      <p class="docs-type-subhead-1 marginless">{{ name }}</p>
     </div>
   </div>
 </header>

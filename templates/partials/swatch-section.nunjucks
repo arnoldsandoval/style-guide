@@ -1,35 +1,33 @@
 <section class="spacer-top-small">
   <div class="container">
-    <div class="row">
-      <h2 class="docs-type-header-2">{{ swatchTitle }}</h2>
-    </div>
-    <div class="row">
-      {% for swatchName, swatchVal in swatchList %}
-        {% set colSpan = 'col-2@xs col-2@sm' %}
-        {% set valueDisplay = swatchVal %}
-        {% set borderClass = 'docs-color-swatch--dark-bordered' if color.isAlmostWhite(swatchVal) else '' %}
+    <h2 class="docs-type-header-2">{{ swatchTitle }}</h2>
+  </div>
+  <div class="container">
+    {% for swatchName, swatchVal in swatchList %}
+      {% set colSpan = 'col-2@xs col-2@sm' %}
+      {% set valueDisplay = swatchVal %}
+      {% set borderClass = 'docs-color-swatch--dark-bordered' if color.isAlmostWhite(swatchVal) else '' %}
 
-        {% if columnSize %}
-          {% set colSpan = 'col-2@xs col-' + columnSize + '@sm' %}
+      {% if columnSize %}
+        {% set colSpan = 'col-2@xs col-' + columnSize + '@sm' %}
+      {% endif %}
+
+      {# Handle gradient objects #}
+      {% if swatchVal.from %}
+        {% if color.isAlmostWhite(swatchVal.from) or color.isAlmostWhite(swatchVal.to) %}
+          {% set borderClass = 'docs-color-swatch--dark-bordered' %}
         {% endif %}
+        {% set valueDisplay = swatchVal.from + ' to ' + swatchVal.to %}
+      {% endif %}
 
-        {# Handle gradient objects #}
-        {% if swatchVal.from %}
-          {% if color.isAlmostWhite(swatchVal.from) or color.isAlmostWhite(swatchVal.to) %}
-            {% set borderClass = 'docs-color-swatch--dark-bordered' %}
-          {% endif %}
-          {% set valueDisplay = swatchVal.from + ' to ' + swatchVal.to %}
-        {% endif %}
-
-        <div class="{{ colSpan }} docs-color-swatch-wrap">
-          <div class="docs-color-swatch aspect background--{{ swatchName }} {{ borderClass }}"></div>
-          <div class="docs-color-labels">
-            <span class="docs-type-classname docs-type-classname--blocky">{{ swatchName }}</span>
-            <br>
-            <code>{{ valueDisplay }}</code>
-          </div>
+      <div class="{{ colSpan }} docs-color-swatch-wrap">
+        <div class="docs-color-swatch aspect background--{{ swatchName }} {{ borderClass }}"></div>
+        <div class="docs-color-labels">
+          <span class="docs-type-classname docs-type-classname--blocky">{{ swatchName }}</span>
+          <br>
+          <code>{{ valueDisplay }}</code>
         </div>
-      {% endfor %}
-    </div>
+      </div>
+    {% endfor %}
   </div>
 </section>

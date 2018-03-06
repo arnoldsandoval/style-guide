@@ -73,7 +73,7 @@
 
 {% macro specsheet_with_demo(properties, baseSelector) %}
   {% set modifierClass = " docs-specsheet__row--related" if baseSelector else "" %}
-  <div class="row row--gutterless docs-specsheet__row{{ modifierClass }}" id="{{ properties.displaySelector | replace(" ", "-") }}">
+  <div class="container gutterless docs-specsheet__row{{ modifierClass }}" id="{{ properties.displaySelector | replace(" ", "-") }}">
     <div class="col-4@sm">
       <div class="docs-selector-header">
         <h4 class="docs-type-classname docs-color--white">{{ properties.displaySelector }}</h4>

@@ -3,14 +3,10 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   background: map-get($docs-colors, prism-background);
-
-  .row:not(:last-child) {
-    margin-bottom: px-rem(12);
-  }
 }
 
 .docs-grid-inner {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
   height: 2.5rem;
@@ -19,4 +15,6 @@
   font-size: 0.875rem;
   background-color: white;
   border: 1px solid map-get($docs-colors, docsGray80);
+  overflow: hidden;
+  pointer-events: none;
 }
